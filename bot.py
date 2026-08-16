@@ -36,6 +36,18 @@ DEFAULT_CAT_ICONS = {
     "زردچوبه چارمنار": "💛",
 }
 
+# نام کوتاه برای دکمه دسته ها
+DEFAULT_CAT_SHORT = {
+    "ادویه جات ترکیبی گهنیج": "ترکیبی",
+    "چاشنی های گهنیج": "چاشنی",
+    "ادویه جات اصلی": "اصلی",
+    "دانه ها و تخم ها": "دانه/تخم",
+    "طعم دهنده ها": "طعم دهنده",
+    "سبزی خشک و متفرقه": "سبزی خشک",
+    "عرقیجات خالص": "عرقیجات",
+    "زردچوبه چارمنار": "زردچوبه",
+}
+
 DEFAULT_CAT_ORDER = [
     "ادویه جات ترکیبی گهنیج",
     "چاشنی های گهنیج",
@@ -53,7 +65,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ============ Flask (برای بیدار موندن) ============
+# ============ Flask ============
 app = Flask(__name__)
 
 @app.route('/')
@@ -68,82 +80,82 @@ def get_default_data():
     return {
         "categories": {
             "ادویه جات ترکیبی گهنیج": {
-                "ادویه مامان بلوچی (قوطی مربعی 130گ)": {"price": 200000, "unit": "قوطی مربعی 130 گرم"},
-                "ادویه مامان بلوچی (پاکت نیم کیلویی)": {"price": 600000, "unit": "پاکت نیم کیلویی"},
-                "ادویه بریانی بلوچی (قوطی مربعی 130گ)": {"price": 170000, "unit": "قوطی مربعی 130 گرم"},
-                "ادویه بریانی بلوچی (پاکت نیم کیلویی)": {"price": 435000, "unit": "پاکت نیم کیلویی"},
-                "ادویه عربی مخصوص (قوطی مربعی 130گ)": {"price": 370000, "unit": "قوطی مربعی 130 گرم"},
-                "ادویه عربی مخصوص (پاکت نیم کیلویی)": {"price": 1245000, "unit": "پاکت نیم کیلویی"},
-                "ادویه کاری مخصوص (قوطی مربعی 130گ)": {"price": 180000, "unit": "قوطی مربعی 130 گرم"},
-                "ادویه کاری مخصوص (پاکت نیم کیلویی)": {"price": 480000, "unit": "پاکت نیم کیلویی"},
-                "ادویه ماهی و میگو (قوطی مربعی 130گ)": {"price": 200000, "unit": "قوطی مربعی 130 گرم"},
-                "ادویه ماهی و میگو (پاکت نیم کیلویی)": {"price": 570000, "unit": "پاکت نیم کیلویی"},
-                "ادویه کباب (قوطی مربعی 130گ)": {"price": 170000, "unit": "قوطی مربعی 130 گرم"},
-                "ادویه کباب (پاکت نیم کیلویی)": {"price": 470000, "unit": "پاکت نیم کیلویی"},
-                "ادویه کرایی بلوچی (قوطی مربعی 130گ)": {"price": 200000, "unit": "قوطی مربعی 130 گرم"},
-                "ادویه کرایی بلوچی (پاکت نیم کیلویی)": {"price": 610000, "unit": "پاکت نیم کیلویی"},
-                "ادویه کاچی (قوطی مربعی 130گ)": {"price": 170000, "unit": "قوطی مربعی 130 گرم"},
-                "ادویه کاچی (پاکت نیم کیلویی)": {"price": 500000, "unit": "پاکت نیم کیلویی"},
-                "ادویه کاجون (قوطی مربعی 130گ)": {"price": 170000, "unit": "قوطی مربعی 130 گرم"},
-                "ادویه کاجون (پاکت نیم کیلویی)": {"price": 480000, "unit": "پاکت نیم کیلویی"},
-                "ادویه مرغ (قوطی مربعی 130گ)": {"price": 180000, "unit": "قوطی مربعی 130 گرم"},
-                "ادویه مرغ (نیم کیلویی پاکت)": {"price": 500000, "unit": "پاکت نیم کیلویی"},
-                "ادویه سمبوسه (قوطی مربعی 130گ)": {"price": 220000, "unit": "قوطی مربعی 130 گرم"},
-                "ادویه سمبوسه (پاکت نیم کیلویی)": {"price": 660000, "unit": "پاکت نیم کیلویی"},
-                "ادویه گراماسالا (قوطی مربعی 130گ)": {"price": 320000, "unit": "قوطی مربعی 130 گرم"},
-                "ادویه گراماسالا (پاکت نیم کیلویی)": {"price": 1035000, "unit": "پاکت نیم کیلویی"},
-                "ادویه فلافل (قوطی مربعی 130گ)": {"price": 180000, "unit": "قوطی مربعی 130 گرم"},
-                "ادویه پکوره (قوطی مربعی 130گ)": {"price": 120000, "unit": "قوطی مربعی 130 گرم"},
+                "مامان بلوچی قوطی 130گ": {"price": 200000, "unit": "قوطی 130 گرم"},
+                "مامان بلوچی پاکت نیم کیلو": {"price": 600000, "unit": "پاکت نیم کیلویی"},
+                "بریانی بلوچی قوطی 130گ": {"price": 170000, "unit": "قوطی 130 گرم"},
+                "بریانی بلوچی پاکت نیم کیلو": {"price": 435000, "unit": "پاکت نیم کیلویی"},
+                "عربی مخصوص قوطی 130گ": {"price": 370000, "unit": "قوطی 130 گرم"},
+                "عربی مخصوص پاکت نیم کیلو": {"price": 1245000, "unit": "پاکت نیم کیلویی"},
+                "کاری مخصوص قوطی 130گ": {"price": 180000, "unit": "قوطی 130 گرم"},
+                "کاری مخصوص پاکت نیم کیلو": {"price": 480000, "unit": "پاکت نیم کیلویی"},
+                "ماهی و میگو قوطی 130گ": {"price": 200000, "unit": "قوطی 130 گرم"},
+                "ماهی و میگو پاکت نیم کیلو": {"price": 570000, "unit": "پاکت نیم کیلویی"},
+                "کباب قوطی 130گ": {"price": 170000, "unit": "قوطی 130 گرم"},
+                "کباب پاکت نیم کیلو": {"price": 470000, "unit": "پاکت نیم کیلویی"},
+                "کرایی بلوچی قوطی 130گ": {"price": 200000, "unit": "قوطی 130 گرم"},
+                "کرایی بلوچی پاکت نیم کیلو": {"price": 610000, "unit": "پاکت نیم کیلویی"},
+                "کاچی قوطی 130گ": {"price": 170000, "unit": "قوطی 130 گرم"},
+                "کاچی پاکت نیم کیلو": {"price": 500000, "unit": "پاکت نیم کیلویی"},
+                "کاجون قوطی 130گ": {"price": 170000, "unit": "قوطی 130 گرم"},
+                "کاجون پاکت نیم کیلو": {"price": 480000, "unit": "پاکت نیم کیلویی"},
+                "مرغ قوطی 130گ": {"price": 180000, "unit": "قوطی 130 گرم"},
+                "مرغ پاکت نیم کیلو": {"price": 500000, "unit": "پاکت نیم کیلویی"},
+                "سمبوسه قوطی 130گ": {"price": 220000, "unit": "قوطی 130 گرم"},
+                "سمبوسه پاکت نیم کیلو": {"price": 660000, "unit": "پاکت نیم کیلویی"},
+                "گراماسالا قوطی 130گ": {"price": 320000, "unit": "قوطی 130 گرم"},
+                "گراماسالا پاکت نیم کیلو": {"price": 1035000, "unit": "پاکت نیم کیلویی"},
+                "فلافل قوطی 130گ": {"price": 180000, "unit": "قوطی 130 گرم"},
+                "پکوره قوطی 130گ": {"price": 120000, "unit": "قوطی 130 گرم"},
             },
             "چاشنی های گهنیج": {
-                "پودر لیمو عمانی (نمکپاشی)": {"price": 110000, "unit": "نمکپاشی"},
-                "چاشنی ماست (نمکپاشی)": {"price": 120000, "unit": "نمکپاشی"},
-                "چاشنی ماست (نیم کیلویی)": {"price": 475000, "unit": "نیم کیلویی"},
-                "ادویه سوسیس بندری (قوطی مربعی)": {"price": 200000, "unit": "قوطی مربعی"},
-                "ادویه سوسیس بندری (نیم کیلویی)": {"price": 590000, "unit": "نیم کیلویی"},
-                "چاشنی زعتر (نمکپاشی)": {"price": 150000, "unit": "نمکپاشی"},
-                "چاشنی زعتر (نیم کیلویی)": {"price": 490000, "unit": "نیم کیلویی"},
-                "چاشنی املت (نمکپاشی)": {"price": 120000, "unit": "نمکپاشی"},
-                "چاشنی املت (نیم کیلویی)": {"price": 300000, "unit": "نیم کیلویی"},
-                "چاشنی سیب زمینی (نمکپاشی)": {"price": 150000, "unit": "نمکپاشی"},
-                "چاشنی سیب زمینی (نیم کیلویی)": {"price": 460000, "unit": "نیم کیلویی"},
-                "ایتالیایی (نمکپاشی)": {"price": 150000, "unit": "نمکپاشی"},
-                "ایتالیایی (نیم کیلویی)": {"price": 555000, "unit": "نیم کیلویی"},
-                "ادویه ماکارونی (نمکپاشی)": {"price": 150000, "unit": "نمکپاشی"},
-                "ادویه ماکارونی (نیم کیلویی)": {"price": 490000, "unit": "نیم کیلویی"},
-                "فلفل سیاه (نمکپاشی)": {"price": 220000, "unit": "نمکپاشی"},
-                "فلفل سیاه (نیم کیلویی)": {"price": 950000, "unit": "نیم کیلویی"},
-                "فلفل سیاه (نکوبیده قوطی 150گ)": {"price": 300000, "unit": "قوطی 150 گرم"},
-                "دارچین (نمکپاشی)": {"price": 100000, "unit": "نمکپاشی"},
-                "دارچین (نیم کیلویی)": {"price": 395000, "unit": "نیم کیلویی"},
-                "دارچین (سالم 150 گ)": {"price": 150000, "unit": "قوطی 150 گرم سالم"},
-                "پودر فلفل قرمز تند چیلی (نمکپاشی)": {"price": 150000, "unit": "نمکپاشی"},
-                "پودر فلفل قرمز تند چیلی (نیم کیلویی)": {"price": 640000, "unit": "نیم کیلویی"},
+                "پودر لیمو عمانی نمکپاش": {"price": 110000, "unit": "نمکپاشی"},
+                "چاشنی ماست نمکپاش": {"price": 120000, "unit": "نمکپاشی"},
+                "چاشنی ماست نیم کیلو": {"price": 475000, "unit": "نیم کیلویی"},
+                "سوسیس بندری قوطی": {"price": 200000, "unit": "قوطی مربعی"},
+                "سوسیس بندری نیم کیلو": {"price": 590000, "unit": "نیم کیلویی"},
+                "چاشنی زعتر نمکپاش": {"price": 150000, "unit": "نمکپاشی"},
+                "چاشنی زعتر نیم کیلو": {"price": 490000, "unit": "نیم کیلویی"},
+                "چاشنی املت نمکپاش": {"price": 120000, "unit": "نمکپاشی"},
+                "چاشنی املت نیم کیلو": {"price": 300000, "unit": "نیم کیلویی"},
+                "چاشنی سیب زمینی نمکپاش": {"price": 150000, "unit": "نمکپاشی"},
+                "چاشنی سیب زمینی نیم کیلو": {"price": 460000, "unit": "نیم کیلویی"},
+                "ایتالیایی نمکپاش": {"price": 150000, "unit": "نمکپاشی"},
+                "ایتالیایی نیم کیلو": {"price": 555000, "unit": "نیم کیلویی"},
+                "ماکارونی نمکپاش": {"price": 150000, "unit": "نمکپاشی"},
+                "ماکارونی نیم کیلو": {"price": 490000, "unit": "نیم کیلویی"},
+                "فلفل سیاه نمکپاش": {"price": 220000, "unit": "نمکپاشی"},
+                "فلفل سیاه نیم کیلو": {"price": 950000, "unit": "نیم کیلویی"},
+                "فلفل سیاه نکوبیده 150گ": {"price": 300000, "unit": "قوطی 150 گرم"},
+                "دارچین نمکپاش": {"price": 100000, "unit": "نمکپاشی"},
+                "دارچین نیم کیلو": {"price": 395000, "unit": "نیم کیلویی"},
+                "دارچین سالم 150 گ": {"price": 150000, "unit": "قوطی 150 گرم سالم"},
+                "فلفل قرمز تند چیلی نمکپاش": {"price": 150000, "unit": "نمکپاشی"},
+                "فلفل قرمز تند چیلی نیم کیلو": {"price": 640000, "unit": "نیم کیلویی"},
             },
             "ادویه جات اصلی": {
-                "پودر پاپریکا (قوطی مربعی)": {"price": 150000, "unit": "قوطی مربعی"},
-                "پودر پاپریکا (پاکت نیم کیلویی)": {"price": 360000, "unit": "پاکت نیم کیلویی"},
-                "پودر سیر خالص (قوطی 180 گ)": {"price": 220000, "unit": "قوطی 180 گرم"},
-                "پودر سیر خالص (پاکت نیم کیلویی)": {"price": 500000, "unit": "پاکت نیم کیلویی"},
-                "زیره سبز (قوطی مربعی)": {"price": 130000, "unit": "قوطی مربعی"},
-                "زیره سبز (پاکت نیم کیلویی)": {"price": 360000, "unit": "پاکت نیم کیلویی"},
-                "زیره سیاه (قوطی مربعی)": {"price": 410000, "unit": "قوطی مربعی"},
-                "زیره سیاه (پاکت نیم کیلویی)": {"price": 1330000, "unit": "پاکت نیم کیلویی"},
-                "زنجبیل (قوطی مربعی)": {"price": 140000, "unit": "قوطی مربعی"},
-                "زنجبیل (پاکت نیم کیلویی)": {"price": 480000, "unit": "پاکت نیم کیلویی"},
-                "پودر گشنیز (قوطی مربعی)": {"price": 100000, "unit": "قوطی مربعی"},
-                "پودر گشنیز (پاکت نیم کیلویی)": {"price": 280000, "unit": "پاکت نیم کیلویی"},
-                "تخم گشنیز (قوطی مربعی)": {"price": 80000, "unit": "قوطی مربعی"},
-                "تخم گشنیز (پاکت نیم کیلویی)": {"price": 280000, "unit": "پاکت نیم کیلویی"},
+                "پاپریکا قوطی": {"price": 150000, "unit": "قوطی مربعی"},
+                "پاپریکا پاکت نیم کیلو": {"price": 360000, "unit": "پاکت نیم کیلویی"},
+                "سیر خالص قوطی 180 گ": {"price": 220000, "unit": "قوطی 180 گرم"},
+                "سیر خالص پاکت نیم کیلو": {"price": 500000, "unit": "پاکت نیم کیلویی"},
+                "زیره سبز قوطی": {"price": 130000, "unit": "قوطی مربعی"},
+                "زیره سبز پاکت نیم کیلو": {"price": 360000, "unit": "پاکت نیم کیلویی"},
+                "زیره سیاه قوطی": {"price": 410000, "unit": "قوطی مربعی"},
+                "زیره سیاه پاکت نیم کیلو": {"price": 1330000, "unit": "پاکت نیم کیلویی"},
+                "زنجبیل قوطی": {"price": 140000, "unit": "قوطی مربعی"},
+                "زنجبیل پاکت نیم کیلو": {"price": 480000, "unit": "پاکت نیم کیلویی"},
+                "پودر گشنیز قوطی": {"price": 100000, "unit": "قوطی مربعی"},
+                "پودر گشنیز پاکت نیم کیلو": {"price": 280000, "unit": "پاکت نیم کیلویی"},
+                "تخم گشنیز قوطی": {"price": 80000, "unit": "قوطی مربعی"},
+                "تخم گشنیز پاکت نیم کیلو": {"price": 280000, "unit": "پاکت نیم کیلویی"},
             },
             "دانه ها و تخم ها": {
-                "دانه چیا (200 گرمی)": {"price": 190000, "unit": "قوطی 200 گرم"},
-                "خاکشیر (200 گرمی)": {"price": 120000, "unit": "قوطی 200 گرم"},
+                "دانه چیا 200 گرمی": {"price": 190000, "unit": "قوطی 200 گرم"},
+                "خاکشیر 200 گرمی": {"price": 120000, "unit": "قوطی 200 گرم"},
                 "تخم شربتی ریز": {"price": 180000, "unit": "قوطی"},
                 "تخم شربتی درشت": {"price": 140000, "unit": "قوطی"},
                 "سیاهدانه": {"price": 200000, "unit": "قوطی"},
                 "بارهنگ": {"price": 160000, "unit": "قوطی"},
-                "پاپ کورن بزرگ (800 گ)": {"price": 330000, "unit": "قوطی 800 گرم"},
+                "پاپ کورن بزرگ 800 گ": {"price": 330000, "unit": "قوطی 800 گرم"},
                 "اسپند": {"price": 80000, "unit": "قوطی"},
                 "تخم زنیان": {"price": 120000, "unit": "قوطی"},
             },
@@ -167,15 +179,15 @@ def get_default_data():
                 "عصاره مرغ": {"price": 120000, "unit": "قوطی"},
             },
             "سبزی خشک و متفرقه": {
-                "فلفل لاهوری (کناری)": {"price": 200000, "unit": "بسته"},
+                "فلفل لاهوری کناری": {"price": 200000, "unit": "بسته"},
                 "نعناع خشک بزرگ": {"price": 220000, "unit": "بسته بزرگ"},
                 "نعناع خشک متوسط": {"price": 160000, "unit": "بسته متوسط"},
                 "شوید خشک بزرگ": {"price": 220000, "unit": "بسته بزرگ"},
                 "شنبلیله خشک": {"price": 230000, "unit": "بسته"},
                 "ترخون خشک": {"price": 260000, "unit": "بسته"},
                 "رزماری خشک قوطی": {"price": 70000, "unit": "قوطی"},
-                "برگ بو (40 گرم)": {"price": 100000, "unit": "بسته 40 گرم"},
-                "هل اکبر بنفش (20 گرمی)": {"price": 270000, "unit": "بسته 20 گرم"},
+                "برگ بو 40 گرم": {"price": 100000, "unit": "بسته 40 گرم"},
+                "هل اکبر بنفش 20 گرمی": {"price": 270000, "unit": "بسته 20 گرم"},
                 "نمک صورتی یک کیلو": {"price": 150000, "unit": "یک کیلو"},
                 "پرک لیمو کوچک": {"price": 200000, "unit": "بسته کوچک"},
                 "پرک لیمو بزرگ": {"price": 500000, "unit": "بسته بزرگ"},
@@ -183,8 +195,8 @@ def get_default_data():
                 "رب انار ترش متوسط": {"price": 420000, "unit": "بسته متوسط"},
                 "آبغوره خالص": {"price": 250000, "unit": "بسته"},
                 "غنچه گل محمدی": {"price": 300000, "unit": "بسته"},
-                "گلرنگ (زردی) بسته 80 گ": {"price": 250000, "unit": "بسته 80 گرم"},
-                "رب گوجه خالص خونگی 1100 گرم": {"price": 420000, "unit": "بسته 1100 گرم"},
+                "گلرنگ زردی 80 گ": {"price": 250000, "unit": "بسته 80 گرم"},
+                "رب گوجه خونگی 1100 گرم": {"price": 420000, "unit": "بسته 1100 گرم"},
             },
             "عرقیجات خالص": {
                 "گلاب ویژه": {"price": 290000, "unit": "بطری"},
@@ -207,8 +219,8 @@ def get_default_data():
                 "عرق نعناع": {"price": 220000, "unit": "بطری"},
             },
             "زردچوبه چارمنار": {
-                "زردچوبه چارمنار (نیم کیلو)": {"price": 470000, "unit": "نیم کیلو"},
-                "زردچوبه چارمنار (150 گرمی)": {"price": 180000, "unit": "150 گرمی"},
+                "زردچوبه چارمنار نیم کیلو": {"price": 470000, "unit": "نیم کیلو"},
+                "زردچوبه چارمنار 150 گرمی": {"price": 180000, "unit": "150 گرمی"},
             },
         },
         "orders": [],
@@ -216,14 +228,14 @@ def get_default_data():
             "پست پیشتاز": 45000,
             "پست سفارشی": 30000,
             "تیپاکس": 65000,
-            "پیک (تهران)": 50000
+            "پیک تهران": 50000
         },
         "card_number": "6037-XXXX-XXXX-XXXX",
         "card_holder": "نام صاحب فروشگاه",
         "contact_info": {
             "phone": "09XXXXXXXXX",
             "address": "تهران",
-            "hours": "۹ صبح تا ۹ شب"
+            "hours": "9 صبح تا 9 شب"
         },
         "admins": list(DEFAULT_ADMIN_IDS),
         "cat_icons": dict(DEFAULT_CAT_ICONS),
@@ -246,9 +258,20 @@ def save_data(data):
 def format_price(price):
     return f"{price:,} تومان"
 
+def format_price_short(price):
+    """قیمت کوتاه برای دکمه ها"""
+    if price >= 1000000:
+        return f"{price//1000000}م{(price%1000000)//1000}"
+    elif price >= 1000:
+        return f"{price//1000}هت"
+    return f"{price}ت"
+
 def get_cat_icon(data, cat_name):
     icons = data.get("cat_icons", DEFAULT_CAT_ICONS)
     return icons.get(cat_name, "📂")
+
+def get_cat_short(cat_name):
+    return DEFAULT_CAT_SHORT.get(cat_name, cat_name[:12])
 
 def get_ordered_categories(data):
     cat_order = data.get("cat_order", DEFAULT_CAT_ORDER)
@@ -266,9 +289,9 @@ def is_admin(user_id):
     data = load_data()
     return user_id in data.get("admins", DEFAULT_ADMIN_IDS)
 
-# ============ حالت کاربران (State Management) ============
-user_states = {}  # {chat_id: {"state": "...", "data": {...}}}
-user_carts = {}   # {chat_id: {product_name: qty}}
+# ============ State ============
+user_states = {}
+user_carts = {}
 
 def get_state(chat_id):
     return user_states.get(chat_id, {}).get("state", "main")
@@ -300,12 +323,10 @@ def bale_request(method, params=None, files=None):
         logger.error(f"Bale API error: {e}")
         return None
 
-def send_message(chat_id, text, keyboard=None, parse_mode=None):
+def send_message(chat_id, text, keyboard=None):
     params = {"chat_id": chat_id, "text": text}
     if keyboard:
         params["reply_markup"] = json.dumps({"inline_keyboard": keyboard})
-    if parse_mode:
-        params["parse_mode"] = parse_mode
     return bale_request("sendMessage", params)
 
 def edit_message(chat_id, message_id, text, keyboard=None):
@@ -345,10 +366,12 @@ def show_categories(chat_id, message_id=None):
     keyboard = []
     
     ordered = get_ordered_categories(data)
+    # دو ستونه با نام کوتاه
     row = []
     for i, cat_name in enumerate(ordered):
         icon = get_cat_icon(data, cat_name)
-        row.append({"text": f"{icon} {cat_name}", "callback_data": f"cat|{i}"})
+        short_name = get_cat_short(cat_name)
+        row.append({"text": f"{icon} {short_name}", "callback_data": f"cat|{i}"})
         if len(row) == 2:
             keyboard.append(row)
             row = []
@@ -381,8 +404,13 @@ def show_category_products(chat_id, cat_index, message_id=None):
     
     for i, prod_name in enumerate(prod_list):
         info = products[prod_name]
+        # دکمه کوتاه: ایموجی + اسم + قیمت کوتاه
+        btn_text = f"{icon} {prod_name} - {format_price_short(info['price'])}"
+        # اگه هنوز طولانی است، اسم رو کوتاه کن
+        if len(btn_text) > 60:
+            btn_text = f"{icon} {prod_name[:40]}... - {format_price_short(info['price'])}"
         keyboard.append([{
-            "text": f"{icon} {prod_name} - {format_price(info['price'])}",
+            "text": btn_text,
             "callback_data": f"prod|{cat_index}|{i}"
         }])
     
@@ -423,14 +451,14 @@ def show_product(chat_id, cat_index, prod_index, message_id=None):
     
     keyboard = [
         [
-            {"text": "1️⃣", "callback_data": f"qty|1"},
-            {"text": "2️⃣", "callback_data": f"qty|2"},
-            {"text": "3️⃣", "callback_data": f"qty|3"},
+            {"text": "1️⃣", "callback_data": "qty|1"},
+            {"text": "2️⃣", "callback_data": "qty|2"},
+            {"text": "3️⃣", "callback_data": "qty|3"},
         ],
         [
-            {"text": "4️⃣", "callback_data": f"qty|4"},
-            {"text": "5️⃣", "callback_data": f"qty|5"},
-            {"text": "🔟", "callback_data": f"qty|10"},
+            {"text": "4️⃣", "callback_data": "qty|4"},
+            {"text": "5️⃣", "callback_data": "qty|5"},
+            {"text": "🔟", "callback_data": "qty|10"},
         ],
         [{"text": "🔙 بازگشت", "callback_data": f"cat|{cat_index}"}],
     ]
@@ -519,7 +547,7 @@ def start_checkout(chat_id, message_id=None):
         return show_cart(chat_id, message_id)
     
     set_state(chat_id, "checkout_name")
-    text = "📝 تکمیل سفارش - مرحله ۱ از ۴\n\nلطفا نام و نام خانوادگی خود را وارد کنید:"
+    text = "📝 تکمیل سفارش - مرحله 1 از 4\n\nلطفا نام و نام خانوادگی خود را وارد کنید:"
     if message_id:
         return edit_message(chat_id, message_id, text)
     return send_message(chat_id, text)
@@ -545,11 +573,8 @@ def show_admin_panel(chat_id, message_id=None):
         return
     text = "⚙️ پنل مدیریت فروشگاه گهنیج\n\nیکی از گزینه ها را انتخاب کنید:"
     keyboard = [
-        [{"text": "💰 ویرایش قیمت محصولات", "callback_data": "adm_prices"}],
-        [{"text": "📦 مدیریت هزینه ارسال", "callback_data": "adm_ship"}],
-        [{"text": "💳 مدیریت اطلاعات پرداخت", "callback_data": "adm_pay"}],
-        [{"text": "📞 مدیریت اطلاعات تماس", "callback_data": "adm_contact"}],
         [{"text": "📋 لیست سفارشات", "callback_data": "adm_orders"}],
+        [{"text": "📊 آمار فروش", "callback_data": "adm_stats"}],
         [{"text": "🔙 بازگشت", "callback_data": "back_main"}],
     ]
     if message_id:
@@ -586,6 +611,25 @@ def show_admin_orders(chat_id, message_id=None):
         return edit_message(chat_id, message_id, text, keyboard)
     return send_message(chat_id, text, keyboard)
 
+def show_admin_stats(chat_id, message_id=None):
+    data = load_data()
+    orders = data.get("orders", [])
+    total_products = sum(len(p) for p in data.get("categories", {}).values())
+    total_sales = sum(o.get("grand_total", 0) for o in orders)
+    
+    text = (
+        f"📊 آمار فروشگاه گهنیج:\n\n"
+        f"📦 تعداد سفارشات: {len(orders)}\n"
+        f"💰 مجموع فروش: {format_price(total_sales)}\n"
+        f"📂 تعداد دسته ها: {len(data.get('categories', {}))}\n"
+        f"🌿 تعداد محصولات: {total_products}\n"
+        f"👥 تعداد مدیران: {len(data.get('admins', []))}"
+    )
+    keyboard = [[{"text": "🔙 پنل مدیریت", "callback_data": "admin"}]]
+    if message_id:
+        return edit_message(chat_id, message_id, text, keyboard)
+    return send_message(chat_id, text, keyboard)
+
 # ============ پردازش کالبک ============
 def handle_callback(callback):
     chat_id = callback["message"]["chat"]["id"]
@@ -613,6 +657,8 @@ def handle_callback(callback):
         show_admin_panel(chat_id, message_id)
     elif data_str == "adm_orders":
         show_admin_orders(chat_id, message_id)
+    elif data_str == "adm_stats":
+        show_admin_stats(chat_id, message_id)
     elif data_str.startswith("cat|"):
         cat_index = int(data_str.split("|")[1])
         show_category_products(chat_id, cat_index, message_id)
@@ -643,13 +689,13 @@ def handle_message(message):
         state_data = get_state_data(chat_id)
         state_data["name"] = text
         set_state(chat_id, "checkout_phone", state_data)
-        send_message(chat_id, "📝 مرحله ۲ از ۴\n\nلطفا شماره تلفن خود را وارد کنید:")
+        send_message(chat_id, "📝 مرحله 2 از 4\n\nلطفا شماره تلفن خود را وارد کنید:")
     
     elif state == "checkout_phone":
         state_data = get_state_data(chat_id)
         state_data["phone"] = text
         set_state(chat_id, "checkout_address", state_data)
-        send_message(chat_id, "📝 مرحله ۳ از ۴\n\nلطفا آدرس کامل خود را وارد کنید:")
+        send_message(chat_id, "📝 مرحله 3 از 4\n\nلطفا آدرس کامل خود را وارد کنید:")
     
     elif state == "checkout_address":
         state_data = get_state_data(chat_id)
@@ -661,11 +707,12 @@ def handle_message(message):
         state_data["ship_list"] = ship_list
         set_state(chat_id, "checkout_shipping", state_data)
         
-        msg = "📝 مرحله ۴ از ۴\n\n🚚 روش ارسال را انتخاب کنید:\n\n"
+        msg = "📝 مرحله 4 از 4\n\n🚚 روش ارسال را انتخاب کنید:\n\n"
         keyboard = []
         for i, method in enumerate(ship_list):
             msg += f"▫️ {method}: {format_price(shipping[method])}\n"
-            keyboard.append([{"text": f"🚚 {method} - {format_price(shipping[method])}", "callback_data": f"ship|{i}"}])
+            btn_text = f"🚚 {method} - {format_price_short(shipping[method])}"
+            keyboard.append([{"text": btn_text, "callback_data": f"ship|{i}"}])
         send_message(chat_id, msg, keyboard)
 
 def process_shipping(chat_id, ship_index, message_id):
@@ -756,7 +803,6 @@ def handle_photo(message):
         f"💵 مبلغ: {format_price(order['grand_total'])}\n\n"
         f"🙏 از خرید شما متشکریم!")
     
-    # ارسال به مدیران
     items_text = ""
     for prod, qty in cart.items():
         items_text += f"  • {prod}: {qty}\n"
@@ -781,19 +827,51 @@ def handle_photo(message):
     user_carts[chat_id] = {}
     clear_state(chat_id)
 
-# ============ Long Polling ============
+# ============ Long Polling (نسخه پایدار) ============
 def polling():
-    logger.info("Bot polling started...")
+    logger.info("=" * 50)
+    logger.info("🤖 Bot polling started...")
+    logger.info(f"Bale API: {BALE_API[:30]}...")
+    logger.info("=" * 50)
+    
     offset = 0
+    error_count = 0
+    last_success = time.time()
+    
     while True:
         try:
-            r = requests.get(f"{BALE_API}/getUpdates", params={"offset": offset, "timeout": 30}, timeout=40)
+            r = requests.get(
+                f"{BALE_API}/getUpdates",
+                params={"offset": offset, "timeout": 25, "limit": 10},
+                timeout=35
+            )
+            
+            if r.status_code != 200:
+                logger.warning(f"⚠️ HTTP {r.status_code}: {r.text[:200]}")
+                error_count += 1
+                time.sleep(min(error_count * 2, 30))
+                continue
+            
             result = r.json()
             
-            if result.get("ok"):
-                for update in result.get("result", []):
-                    offset = update["update_id"] + 1
-                    
+            if not result.get("ok"):
+                logger.warning(f"⚠️ API Error: {result.get('description', 'Unknown')}")
+                if "Conflict" in str(result.get("description", "")):
+                    logger.info("🔄 Conflict detected, waiting 10s...")
+                    time.sleep(10)
+                    offset = 0
+                error_count += 1
+                time.sleep(min(error_count * 2, 30))
+                continue
+            
+            updates = result.get("result", [])
+            if updates:
+                logger.info(f"📨 Received {len(updates)} updates")
+            
+            for update in updates:
+                offset = update["update_id"] + 1
+                
+                try:
                     if "message" in update:
                         msg = update["message"]
                         if "photo" in msg:
@@ -802,16 +880,38 @@ def polling():
                             handle_message(msg)
                     elif "callback_query" in update:
                         handle_callback(update["callback_query"])
+                except Exception as e:
+                    logger.error(f"❌ Handler error: {e}", exc_info=True)
+                    continue
+            
+            error_count = 0
+            last_success = time.time()
+            
+        except requests.exceptions.Timeout:
+            logger.debug("⏱ Request timeout (normal)")
+            continue
+            
+        except requests.exceptions.ConnectionError as e:
+            logger.warning(f"🌐 Connection error: {e}")
+            error_count += 1
+            time.sleep(min(error_count * 3, 60))
+            
         except Exception as e:
-            logger.error(f"Polling error: {e}")
-            time.sleep(5)
+            logger.error(f"❌ Unexpected error: {e}", exc_info=True)
+            error_count += 1
+            
+            if time.time() - last_success > 300:
+                logger.warning("🔄 No success for 5 minutes, resetting...")
+                offset = 0
+                last_success = time.time()
+                error_count = 0
+            
+            time.sleep(min(error_count * 3, 60))
 
 if __name__ == "__main__":
-    # Flask در thread جدا
     t = threading.Thread(target=run_flask, daemon=True)
     t.start()
     logger.info(f"Flask started on port {PORT}")
     
-    # شروع polling
     load_data()
     polling()
